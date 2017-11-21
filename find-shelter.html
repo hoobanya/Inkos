@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to Inkos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="inkos.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="inkos.js"></script>
+</head>
+
+<body>
+  <!-- Start of navigation bar -->
+  <nav class="navbar navbar-inverse navbar-static-top" id="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header" id="navBar" >
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="index.html"><img src ="images/logo.png" id="logo"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="how-to-survive.html">HOW TO SURVIVE</a></li>
+          <li class="active"><a href="find-shelter.html">FIND SHELTER</a></li>
+          <li><a href="request-help.html">REQUEST HELP</a></li>
+          <li><a href="volunteer-help.html">VOLUNTEER HELP</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <p class="navbar-text slogan">Your solution to disaster preparation </p>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End of navigation bar -->
+
+  <!-- Start of find shelter page -->
+  <div class="container">
+    <h3>Find a possible shelter near you</h3>
+    <p>Search for the nearest shelters on a map and get detailed information</p>
+    </br>
+
+    <!-- Empty search alert -->
+    <div class="alert alert-danger" id="emptySearchAlert" role="alert">
+       <strong>Error!</strong> Search bar is empty
+    </div>
+
+    <!-- Search bar -->
+    <form>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter ZIP Code or Address" id="shelterSearchBar">
+        <div class="input-group-btn">
+          <button class="btn btn-default" id="shelterSearchButton" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    </br>
+
+    <!-- Start of shelter locations table -->
+    <div class="container" id="shelterTableDiv">
+      <p id="clickInstructions">Scroll down for the list of nearest shelters</p>
+      <div class="container">
+        <img id="shelterMapImage" src="images/sheltermap.png">
+      </div>
+      </br>
+      <table class="table"  id="shelterTable">
+        <p id="clickInstructions">Click on a corresponding shelter number in the list below for more information</p>
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Distance</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Shelter 0 -->
+          <tr data-toggle="modal" data-id="0" data-target="#form-modal">
+            <td>1</td>
+            <td>Evanston Public Library</td>
+            <td>0.5 Miles</td>
+            <td>1703 Orrington Avenue, Evanston, IL</td>
+          </tr>
+
+          <!-- Shelter 1 -->
+          <tr data-toggle="modal" data-id="1" data-target="#form-modal">
+            <td>2</td>
+            <td>Northwestern Technological Institute</td>
+            <td>0.7 Miles</td>
+            <td>2145 Sheridan Road, Evanston, IL</td>
+          </tr>
+
+          <!-- Shelter 2 -->
+          <tr data-toggle="modal" data-id="2" data-target="#form-modal">
+            <td>3</td>
+            <td>Ryan Center for the Musical Arts</td>
+            <td>0.7 Miles</td>
+            <td>70 Arts Circle Drive, Evanston, IL</td>
+          </tr>
+
+          <!-- Shelter 3 -->
+          <tr data-toggle="modal" data-id="3" data-target="#form-modal">
+            <td>4</td>
+            <td>Ryan Field</td>
+            <td>1.2 Miles</td>
+            <td>1505 Central Street, Evanston, IL</td>
+          </tr>
+
+          <!-- Shelter 4 -->
+          <tr data-toggle="modal" data-id="4" data-target="#form-modal">
+            <td>5</td>
+            <td>Evanston Township High School</td>
+            <td>1.2 Miles</td>
+            <td>1600 Dodge Avenue, Evanston, IL</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </br>
+    </br>
+    <!-- End of shelter locations table -->
+  </div>
+  <!-- End of find shelter page -->
+
+  <!-- Start of modal -->
+  <div id="form-modal" class="modal fade" role="dialog" aria-labelledby="orderModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Common modal header -->
+        <div class="modal-header">
+          <h4 id="shelterModalHeader">Shelter Information</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+
+        <!-- Start of modal body for shelter information -->
+        <form class="form-horizontal" id="shelterInfoForm">
+          </br>
+          <!-- Image -->
+          <div class="container">
+            <img id="shelterImage" src="#">
+          </div>
+          </br>
+
+          <!-- Name -->
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-2" for="nameOutput">Name:</label>
+            <div class="col-sm-6">
+              <p class="form-control-static" id="nameOutput"></p>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-2" for="addressOutput">Address:</label>
+            <div class="col-sm-6"> 
+              <p class="form-control-static" id="addressOutput"></p>
+            </div>
+          </div>
+
+          <!-- Contacts -->
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-2" for="phoneOutput">Contacts:</label>
+            <div class="col-sm-6"> 
+              <p class="form-control-static" id="phoneOutput"></p>
+            </div>
+          </div>
+
+          <!-- Type -->
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-2" for="typeOutput">Type:</label>
+            <div class="col-sm-6"> 
+              <p class="form-control-static" id="typeOutput"></p>
+            </div>
+          </div>
+
+          <!-- Capacity -->
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-2" for="capacityOutput">Capacity:</label>
+            <div class="col-sm-6"> 
+              <p class="form-control-static" id="capacityOutput"></p>
+            </div>
+          </div>
+          </br>
+        </form>
+        <!-- End of modal body for shelter information-->
+      </div>
+    </div>
+  </div>
+  <!-- End of modal -->
+
+</body>
+</html>

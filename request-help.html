@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to Inkos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="inkos.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="inkos.js"></script>
+</head>
+
+<body>
+
+  <!-- Start of navigation bar -->
+  <nav class="navbar navbar-inverse navbar-static-top" id="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header" id="navBar" >
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="index.html"><img src ="images/logo.png" id="logo"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="how-to-survive.html">HOW TO SURVIVE</a></li>
+          <li><a href="find-shelter.html">FIND SHELTER</a></li>
+          <li class="active"><a href="request-help.html">REQUEST HELP</a></li>
+          <li><a href="volunteer-help.html">VOLUNTEER HELP</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <p class="navbar-text slogan">Your solution to disaster preparation </p>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End of navigation bar -->
+
+  <!-- Start of request help page -->
+  <div class="container">
+    <h3>Make a request for help to your location</h3>
+    <p>Submit your information to post your request on the website listings.</p>
+    </br>
+
+    <!-- Empty field alert -->
+    <div class="alert alert-danger" id="emptyFieldAlert" role="alert">
+      <strong>Error!</strong> One or more required fields are empty.
+    </div>
+
+    <!-- Submit success alert -->
+    <div class="alert alert-success alert-dismissable" id="submitSuccessAlert" role="alert">
+      <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> Your request has been posted on the website listings.
+    </div>
+
+    <!-- Request help form -->
+    <form class="form-horizontal" id="requestUserEntry">
+      <div class="container" id="requestUserEntrySuccess">
+        </br>
+        <p>Your request has been posted to the Inkos Volunteer Help listings!</p>
+        <a href="volunteer-help.html">Click here to visit the Volunteer Help page.</a>
+      </div>
+
+      <!-- Name -->
+      <div class="form-group requestUserEntryContent">
+        </br>
+        <label class="control-label col-sm-offset-0 col-sm-3" for="nameInput">What is your name?</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control requiredInput" id="nameInput" placeholder="Name">
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="form-group requestUserEntryContent">
+        <label class="control-label col-sm-offset-0 col-sm-3" for="streetInput">Where do you need help?</label>
+        <div class="col-sm-6"> 
+          <input type="text" class="form-control requiredInput" id="streetInput" placeholder="Street">
+        </div>
+      </div>
+      <div class="form-group requestUserEntryContent">
+        <div class="col-sm-offset-3 col-sm-3"> 
+          <input type="text" class="form-control requiredInput" id="cityInput" placeholder="City">
+        </div>
+        <div class="col-sm-1"> 
+          <select class="form-control requiredInput" id="stateList">
+            <option>AK</option>
+            <option>AL</option>
+            <option>AR</option>
+            <option>AZ</option>
+            <option>CA</option>
+            <option>CO</option>
+            <option>CT</option>
+            <option>DC</option>
+            <option>DE</option>
+            <option>FL</option>
+            <option>GA</option>
+            <option>HI</option>
+            <option>IA</option>
+            <option>ID</option>
+            <option>IL</option>
+            <option>IN</option>
+            <option>KS</option>
+            <option>KY</option>
+            <option>LA</option>
+            <option>MA</option>
+            <option>MD</option>
+            <option>ME</option>
+            <option>MI</option>
+            <option>MN</option>
+            <option>MO</option>
+            <option>MS</option>
+            <option>MT</option>
+            <option>NC</option>
+            <option>ND</option>
+            <option>NE</option>
+            <option>NH</option>
+            <option>NJ</option>
+            <option>NM</option>
+            <option>NY</option>
+            <option>OH</option>
+            <option>OK</option>
+            <option>OR</option>
+            <option>PA</option>
+            <option>RI</option>
+            <option>SC</option>
+            <option>SD</option>
+            <option>TN</option>
+            <option>TX</option>
+            <option>UT</option>
+            <option>VA</option>
+            <option>VT</option>
+            <option>WA</option>
+            <option>WI</option>
+            <option>WV</option>
+            <option>WY</option>
+          </select>
+        </div>
+        <div class="col-sm-2"> 
+          <input type="text" class="form-control requiredInput" id="zipInput" placeholder="ZIP Code">
+        </div>
+      </div>
+
+      <!-- Contacts -->
+      <div class="form-group requestUserEntryContent">
+        <label class="control-label col-sm-offset-0 col-sm-3" for="phoneInput">How can we contact you?</label>
+        <div class="col-sm-6"> 
+          <input type="tel" class="form-control requiredInput" id="phoneInput" placeholder="Phone Number (ex. 000-000-0000)">
+        </div>
+      </div>
+      <div class="form-group requestUserEntryContent">
+        <div class="col-sm-offset-3 col-sm-6"> 
+          <input type="email" class="form-control requiredInput" id="emailInput" placeholder="E-Mail Address">
+        </div>
+      </div>
+
+      <!-- Date -->
+      <div class="form-group requestUserEntryContent">
+        <label class="control-label col-sm-offset-0 col-sm-3" for="dateInput">When do you need help?</label>
+        <div class="col-sm-6"> 
+          <input type="date" class="form-control requiredInput" id="dateInput" placeholder="Date">
+        </div>
+      </div>
+
+      <!-- Time -->
+      <div class="form-group requestUserEntryContent">
+        <div class="col-sm-offset-3 col-sm-3"> 
+          <input type="text" class="form-control requiredInput" id="fromTimeInput" placeholder="From (ex. 00:00 AM)">
+        </div>
+        <div class="col-sm-3"> 
+          <input type="text" class="form-control requiredInput" id="toTimeInput" placeholder="To (ex. 00:00 PM)">
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group requestUserEntryContent">
+        <label class="control-label col-sm-offset-0 col-sm-3" for="descriptionInput">What do you need help with?</label>
+        <div class="col-sm-6"> 
+          <textarea type="text" class="form-control requiredInput" rows="10" id="descriptionInput"></textarea>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="form-group requestUserEntryContent">
+        <div class="col-sm-offset-5 col-sm-1">
+          <button type="button" id="requestSubmitButton" class="btn btn-success" role="button">Submit</button>
+        </div>
+        <div class="col-sm-1">
+          <a href="request-help.html" id="requestCancelButton" class="btn btn-danger" role="button">Cancel</a>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <!-- End of request help page -->
+
+</body>
+</html>
