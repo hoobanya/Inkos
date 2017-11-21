@@ -10,6 +10,20 @@ body {
 
 /* Common CSS */
 
+/* Fonts */
+#web-head{
+	font-family: bebas_neue_regularregular;
+}
+
+@font-face {
+    font-family: 'bebas_neue_regularregular';
+    src: url('bebasneue_regular-webfont.woff2') format('woff2'),
+         url('bebasneue_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /* Navigation Bar */
 #navBar {
 	height: 70px;
