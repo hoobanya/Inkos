@@ -124,6 +124,7 @@ $(document).ready(function(){
     	$("#volTable tr").removeClass("highlight");
     	if(!selected){
             $(this).addClass("highlight");
+            $('#footer').hide()
     	}
 	});
 
@@ -137,6 +138,7 @@ $(document).ready(function(){
   		$('#submitSuccessAlert').hide();
   		$('#volunteerUserEntry').trigger("reset");
   		$("#volunteerModalHeader").text("Requester Information");
+      $('#footer').show()
 	});
 
 	$(document).on("click", "#volunteerVolunteerButton", function(event){
@@ -219,6 +221,7 @@ $(document).ready(function(){
     	$("#shelterTable tr").removeClass("highlight");
     	if(!selected){
             $(this).addClass("highlight");
+            $('#footer').hide()
     	}
 	});
 
@@ -227,6 +230,7 @@ $(document).ready(function(){
   		$("body").removeClass("stop-scrolling");
   		current_row.removeClass("highlight");
   		$("#shelterInfoForm").slideDown()
+      $('#footer').show()
 	});
 });
 
